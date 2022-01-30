@@ -1,0 +1,19 @@
+package a_live_review.week18;
+
+public class ExceptionsPractice {
+	
+	public static void main(String[] args) {
+		System.out.println("Test started");
+		
+		String str = null;
+		System.out.println( str.toUpperCase() ); // unchecked
+		
+	//	System.out.println("Hello");
+		
+	//	FileInputStream file = new FileInputStream(""); // checked exception
+		
+		
+	}
+	
+
+}

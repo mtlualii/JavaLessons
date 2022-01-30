@@ -1,0 +1,481 @@
+12/22/2021
+Java Boot Camp
+
+	Topics:
+		1. Primitives: int, double, char, boolean
+		2. Primitive Type Castings: Implicit vs Explicit
+		3. Wrapper class
+		4. String
+		5. String vs StringBuilder vs StringBuffer
+		6. Loops: for & while
+		7. Array
+		8. for each loop
+		9. Custom Methods
+		10. Method Overloading
+		11. Constructor
+		12. Class & Objects
+		13. Static vs Instance
+		14. Import Statements
+		15. Access Modifiers
+		16. OOP Encapsulations
+		17. OOP Inheritance
+		18. Method Overriding
+		19. Final keyword
+		20. OOP Abstraction
+		21. Abstract Class vs Interface
+		22. OOP Polymorphism
+		23. Reference Type Castings: Upcasting vs DownCasting
+		24. Exceptions: checked & unchecked
+		25. Exception Handlings
+		26. final vs finally vs finalize
+		27. garbage collection & garbage collector
+		28. Collections: List, Set
+		29. Iteable & Iterator
+		30. Maps
+
+
+1. Primitives: 
+		byte < short < int < long < float < double
+		char, boolean
+
+		int, double, char, boolean
+
+
+
+2. Primitive castings:
+		
+		implicit casting: casting smaller primitive type to larger primitive type
+
+		explicit castings: casting larger primitive type to smaller primitive type
+
+
+3. Wrapper class: objects of the primitives, allows us to convert primitive types to object
+		
+		parse methods: converting string to primitives
+		valueOf methods: converting string to wrapper class objects
+
+				String str = "123";
+				int num = Integer.parseInt(str);
+				Integer num2 = Integer.valueOf(str);
+
+
+4. String: immutable version of char sequences
+
+
+		charAt(index), length(), lowercase& uppwercase
+		substring(), equals(), startsWith, endsWith ....
+
+
+5. StringBuilder & StringBuffer: mutable version of char sequences
+		
+		StringBuilder: not synchronized
+
+		StringBuffer: synchronized
+
+
+	Synchronized: thread-safe ===> one thread at a time
+
+	thread: sub sequences of process
+
+
+6. Loops: repeated action
+		
+		for loop: if the iteration number is fixed
+
+				"Java";
+
+					  int i =0;     i < str.length();  i++
+				for(initialization; Condition ;   Iterator   ){
+
+				}
+
+
+		while loop: if the iteration number is NOT fixed
+
+				while( result.hasNext() ){
+
+				}
+
+
+		do-while loop: loop gets executed at least once, even if condition is false
+
+				do{
+
+
+				}while(condition)
+
+
+
+7. Array: size is fixed
+		 has index
+		 supports both primitives & non-primitives
+		 can be multi-dimensional
+
+
+8. For Each Loop: Iteration is fixed
+				  there MUST be a data structure
+
+
+		  for( DataType  variable : Data Structure ){
+
+
+		  }
+
+
+9. Custom Methods: function
+				grouping the code fragments that can perform a task
+
+
+		AM  Specifier  RetrunType  methodName(Parameter){
+				codes	
+
+		}
+
+
+10. Method Overloading: multiple methods sharing the same method name.
+						method name MUST be same, parameters MUST be different
+
+
+11. Constructor: Special Method
+				used for creating objects from the class
+				execution of constructor depends on the object
+
+		declare:
+			AM  ClassNames(Parameter){
+
+			}
+
+
+		create object:
+			new Constructor
+
+
+12. Class & Objects: class is template of objects, specifies what the objects should contains and how object should behave
+					 Objects they came from the class, they are instance of the class. each object has it's own memory
+
+
+
+13. Instance vs Static:
+		instance: belong to the object. there are multiple copies, each object of the class has its own copy
+
+		static: belong to class. there is only one copy for all objects
+
+
+14. Import Statements:
+			
+			regular import:
+				import  packageName.ClassName;
+				import  packageName.*;
+
+
+			static imports:
+				import static pakcgaeName.className.staticMember;
+				import static pakcgaeName.className.*;
+
+
+15. Access Modifiers:  private < default < protected < public
+		
+		private: visible only within the class
+		dfeault: only visible within same package
+		protected: visible within the same package, also visible outside package in sub class
+		public: always visible
+
+
+
+
+16. OOP: Object Oriented Programming
+		
+		code reusability
+		easy to maintain
+		centralized structure
+		less duplication
+		less memory usage
+
+
+	Encapsulation: data hiding by giving private access modifier
+				use public getter/setter to read/write the private data
+
+				getter: read ONLY
+						returns the private data
+						no parameters
+
+
+				setter: write ONLY
+						does not retruns any value
+						has parameter
+
+			in my framework, I have used the encapsulation in POJO class... 
+		
+
+17. OOP Inheritance: Building IS A relationships between class (sub/super)
+
+				 sub               super
+			Class X   extends Class Y
+
+
+		sub class: inherits all the methods and variables from super class
+
+		super class: can not inherit anthing from sub class
+
+		A class can be extended by multiple classes
+
+		A class can only extend one class
+
+
+
+	TestBase
+
+		@BeforeMethod{
+			Open Browser
+			Maximize window
+			implicitWait
+			Navigate To URL
+		}
+
+
+		@Aftermethods{
+			close brower.
+				if testfailsed:
+					takesscreenshot
+		}
+
+
+
+	TestClass1 extends TestBase
+
+	TestClass2 extends TestBase
+
+	TestClass3 extends TestBase
+
+	....
+
+
+
+	BasePage:
+
+		Constructor(){
+			PageFactory.initElement(driver, this)
+		}
+
+
+	HomePage extends BasePage
+
+
+18. Method Overriding: giving the different implementation to the method
+					
+						MUSt happen in sub class
+
+						method name, parameters, return type MUST be same
+
+						Access Modifier MUST be same or more visible
+
+						we cann not override:
+							static, final, private
+
+
+
+19. Final keyword: unchangable
+		
+		variable: can not be reassigned 
+
+		methods: cannot be overriden
+
+		class: can not be inherited
+
+
+
+20. OOP Abstraction: hiding the implementation details
+					putting the focus on essesntials without worrying about small details
+
+
+				Abstract methods: method without the body
+								 meant to be overriden (can not final, static, private)
+
+				2 ways:
+					1. Abstract class: meant to be parent (can't be final)
+									can not create object
+
+									abstract class can have all the methods & variables of the regular class + abstract methods
+
+
+
+					2. Interface: blueprint of the class, provides the additional methods that the specific classes needs
+								 meant to be implemented (can not be final)
+
+								 public is the only access modifier
+
+								 variable: static & final by default
+
+								 methods: default methods, static methods, abstract methods
+
+
+			 	Ex:
+			 		List (Interface)
+			 		Map (Interface)
+			 		WebDriver (Interface)
+			 		JavaScriptExecuter (Interface)
+			 		BasePage (Abstract class)
+			 		TestBase (Abstract class)
+			 		...
+
+
+
+21. Abstract class vs Interface:
+		
+		one class can extends one abstract class
+		one class can implement multiple interfaces
+		one interface can extend multiple interfaces
+
+
+
+22. OOP Polymorphism: ability of the object taking on many forms. there MUST be IS A relation
+					
+					Parent class/interface bring referenced to the child objects
+					
+
+					reference type decides what can be accessible
+
+					object Type decides which implementation to be executed
+
+
+			WebDriver driver = new ChromeDriver()
+			List list = new ArrayList();
+			Map<String, Object> map = new HashMap();
+			...
+
+			
+			Driver:
+
+			  WebDriver	get(){
+
+			  		return chromeDriver;
+
+			  		return FireFoxDriver;
+
+			  		...
+				}
+
+
+
+23. Reference Type Castings: there MUST be IS A relationship
+			
+			upcasting: casting smaller type to larger type. (done implicitly)
+				List list = new ArrayList();
+				List list = (List) new ArrayList();
+
+			downcasting: casting larger type to smaller type. (done explicitly)
+
+				List list = new ArrayList();
+
+				( (ArrayList)list)
+
+
+
+24. Exceptions: checked & unchecked
+		
+		unchecked exception: occurs during runtime
+
+
+		checked exception: occurs during compile time
+
+
+25. Exception handlings:
+		
+		1. try & catch: blocks can hnadles both checked & unchecked exceptions
+
+				try{
+					exception Code
+				}catch(Exception e){
+					e.printStackTrace();
+				}finally{
+
+				}
+
+
+		2. throws: key word can handle checked exceptions ONLY. used within method signature
+
+				caller of the methods still gets the exception
+
+
+
+26. final vs finally vs finalize:
+		
+		final: keyword. can be used for variables, methods, and classes
+
+
+		finally: block, can be used with try & catch blocks.
+				always gets executed regardless of the exception
+
+
+		finalize: method. garbage collectors calls this method before destorying the unreferenced objects
+
+
+
+27. Garbge Collection: where all the unreferenced objects goes to.
+			
+			two ways:
+
+				1. assign null
+						String str = "Java";  // eligible for garbage collection
+						str = null;
+
+				2. assigning a new object:
+
+						String str = "Java";  // eligible for garbage collection
+						str = "Python";
+
+
+28. Collection: size is dynamic. only supports non-primitives
+		
+		List (I): accepts duplicates, has index
+
+			ArrayList (C): array based class, retrieving is faster
+
+			LinkedList (C): doublly linked. removing & adding are faster
+
+			Vector (C): synchronized version of ArrayList ==> thread safe
+
+			Stack (C): synchronized ==> thread safe.  LIFO
+
+
+			findElements() ==> List<WebElements>
+
+
+		Set (I): does not accept duplicates, does not have index
+		
+			HashSet (C): order is not guaranted. (fastest)
+
+			LinkedhashSet (C): always keeps the insertion order
+
+			TreeSet (C): ascending order. 
+
+
+
+			getWindowHandles() ====> Set<String>
+
+
+
+
+30. Map (I): key & value, key can not be duplicated, value can be duplicated
+			only support non-primitives
+			size is dynamic. no index
+
+
+		HashMap (C): order is not guaranted. (fastest), accepts null
+
+		LinkedHashMap (C): always keeps the insertion order, acccepts null
+
+		HashTable (C): does not accept null key, order is not guaranted, synchronized
+
+		TreeMap (C): does not accept null key, ascending order
+
+
+
+
+
+
+
+
+
+
+
